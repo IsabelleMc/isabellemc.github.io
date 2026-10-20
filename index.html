@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Isabelle McEntee · Physics, Simulation, Quant & Quantum</title>
+<meta name="description" content="Physics MSc (FU Berlin). Quantum simulation, tensor networks, stochastic modelling and algorithmic trading. Portfolio and skills.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#0a0ab5;--paper:#e9e9e7;--line:rgba(10,10,181,.55)}
+*{box-sizing:border-box}
+html{background:#d9d9d6}
+body{margin:0;padding:clamp(8px,2vw,28px);color:var(--blue);font-family:"Inter Tight","Helvetica Neue",Arial,sans-serif;font-size:16px;line-height:1.45;-webkit-font-smoothing:antialiased}
+a{color:var(--blue);text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{background:var(--blue);color:var(--paper);text-decoration:none}
+
+.sheet{position:relative;max-width:1120px;margin:0 auto;background:var(--paper);border-radius:28px;overflow:hidden;isolation:isolate}
+.sheet::before{content:"";position:absolute;inset:0;z-index:-1;opacity:.5;pointer-events:none;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .35  0 0 0 0 .35  0 0 0 0 .35  0 0 0 .55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+
+/* layout */
+.star{position:absolute;right:clamp(20px,4vw,36px);top:clamp(24px,4vw,44px);width:clamp(56px,9vw,104px);height:auto}
+.namebox{position:relative}
+.cols{display:grid;grid-template-columns:1.05fr 1fr}
+.left{padding:clamp(20px,4vw,40px) clamp(20px,5vw,48px) 48px;border-right:1px solid var(--line)}
+.right{display:flex;flex-direction:column}
+.block{padding:clamp(20px,4vw,40px) clamp(20px,4vw,36px);border-bottom:1px solid var(--line)}
+.block:last-child{border-bottom:0}
+
+h2{margin:0 0 18px;font-size:clamp(1.6rem,3.2vw,2.2rem);font-weight:700;letter-spacing:-.05em;line-height:1}
+.left h2:not(:first-child){margin-top:44px}
+h3{margin:0;font-size:1.02rem;font-weight:700;letter-spacing:-.03em;line-height:1.25}
+.entry{margin:0 0 26px}
+.meta{margin:2px 0 8px;font-size:.88rem;font-weight:500;opacity:.8}
+.entry p{margin:6px 0;font-weight:400;letter-spacing:-.01em}
+.entry ul{margin:6px 0;padding:0;list-style:none}
+.entry li{position:relative;padding-left:14px;margin:5px 0;letter-spacing:-.01em}
+.entry li::before{content:"";position:absolute;left:0;top:.62em;width:4px;height:4px;border-radius:50%;background:var(--blue)}
+.entry em{font-style:italic}
+.deg{display:grid;grid-template-columns:1fr auto;gap:4px 16px;align-items:start;padding:12px 0;border-top:1px solid var(--line)}
+.edu .deg:first-child{border-top:0;padding-top:0}
+.deg strong{display:block;font-weight:700;letter-spacing:-.02em}
+.deg span{display:block;font-size:.9rem;font-weight:500;opacity:.85}
+.deg .uni{font-style:normal;font-weight:400;font-size:.88rem;opacity:.7;text-align:right;max-width:11em}
+@media(max-width:480px){.deg{grid-template-columns:1fr}.deg .uni{text-align:left;max-width:none}}
+
+/* name block */
+.name{font-weight:800;font-size:clamp(3rem,8vw,5.6rem);line-height:.9;letter-spacing:-.06em;margin:0}
+.name .c{font-size:1.45em;line-height:.7}
+.name .s{font-weight:500;letter-spacing:-.05em}
+.role{margin:14px 0 0;font-weight:500;letter-spacing:-.02em}
+.avail{display:inline-block;margin-top:14px;border:1px solid var(--blue);border-radius:999px;padding:3px 14px;font-size:.88rem;font-weight:500}
+.profile p{margin:0;text-align:justify;hyphens:auto;letter-spacing:-.01em}
+.contact{display:grid;grid-template-columns:auto 1fr;gap:8px 28px;align-items:start;margin-top:22px}
+.contact h2{margin:0;font-size:1.5rem}
+.contact div{display:flex;flex-direction:column;gap:2px}
+
+.skills{display:grid;grid-template-columns:1fr 1fr;gap:26px 28px}
+.skills h4{margin:0 0 8px;font-size:1.3rem;font-weight:700;letter-spacing:-.05em}
+.skills ul{margin:0;padding:0;list-style:none;font-size:.93rem}
+.skills li{position:relative;padding-left:16px;margin:2px 0;font-weight:400}
+.skills li::before{content:"";position:absolute;left:2px;top:.62em;width:3px;height:3px;border-radius:50%;background:var(--blue)}
+.skills-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:18px}
+.skills-head h2{margin:0}
+
+@media(max-width:820px){
+  .cols{grid-template-columns:1fr}
+  .left{border-right:0;border-top:1px solid var(--line)}
+  .cols{display:flex;flex-direction:column}
+  .right{order:-1}
+  .star{width:56px}
+}
+@media(max-width:480px){.skills{grid-template-columns:1fr}.contact{grid-template-columns:1fr}}
+@media print{html,body{background:#fff}.sheet::before{display:none}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<div class="cols">
+
+<main class="left">
+  <h2>Research</h2>
+
+  <article class="entry">
+    <h3>Student Research Assistant, Freie Universität Berlin</h3>
+    <p class="meta">May 2024 – present · Berlin · MSc thesis: <em>Correlations in Non-Markovian Open Quantum System Dynamics</em> (Prof. Christiane Koch)</p>
+    <ul>
+      <li>Implemented and compared two methods for simulating a quantum system coupled to a bath with memory: chain mapping with matrix product states (TEBD) and the surrogate Hamiltonian.</li>
+      <li>Showed that the time a truncated simulation stays accurate grows linearly with chain length and does not depend on coupling strength. This gives a rule for choosing chain length for a target simulation time.</li>
+      <li>Mapped the trade-off: chain mapping was reliable across all regimes but needed about 50 modes, while the surrogate Hamiltonian covered a similar time window with 15 but only under strict sampling conditions.</li>
+      <li>Presented at the DPG annual conference.</li>
+    </ul>
+    <p><a href="masters-thesis.pdf">Read the Master's thesis (PDF)</a></p>
+  </article>
+
+  <article class="entry">
+    <h3>Honours research, Monash University</h3>
+    <p class="meta">2022 · First Class Honours · <em>Slowly Decaying Correlation in a Simple Metastable Quantum System</em> (Prof. Kavan Modi)</p>
+    <ul>
+      <li>Built a small simulation in Python of a quantum system coupled to two environment qubits, and measured how long it remembers its past using multi-time correlations.</li>
+      <li>Found a hidden effect: the usual spectral test showed nothing, but a small random perturbation exposed a very slow-decaying (metastable) state.</li>
+      <li>Showed that memory fades as a power law, slower as the swap angle shrinks, and proposed a four-time correlation test that can be measured experimentally.</li>
+    </ul>
+    <p><a href="honours-thesis.pdf">Read the Honours thesis (PDF)</a></p>
+  </article>
+
+  <h2>Projects</h2>
+
+  <article class="entry">
+    <h3>IMC Prosperity 4: algorithmic trading competition</h3>
+    <p class="meta">Python · 2026 · solo entry · top 5% of teams</p>
+    <p>Market making, mean reversion on cointegrated spreads, and options pricing across a 12-strike chain. My write-up of what went wrong is the useful part: local backtests overstated live P&amp;L by about 10x, single-day validation produced false positives, and strategies with clean t-stats lost money once spread and queue costs were counted.</p>
+    <p><a href="https://github.com/IsabelleMc/imc-prosperity-4">Code and lessons on GitHub</a></p>
+  </article>
+
+  <article class="entry">
+    <h3>Quant job-posting tracker</h3>
+    <p class="meta">Python · GitHub Actions</p>
+    <p>A daily workflow that queries Greenhouse and Lever boards for graduate roles at target firms, filters by keyword and location, and opens an issue when something new appears.</p>
+  </article>
+
+  <h2>Experience</h2>
+
+  <article class="entry">
+    <h3>Working Student, Defect Manager (Mbition), Mercedes-Benz AG</h3>
+    <p class="meta">Mar 2024 – Apr 2026 · Part-time · Berlin</p>
+    <ul>
+      <li>Root-cause analysis on production data pipelines.</li>
+      <li>Built a log-based triage process that cut developer response time by 50%.</li>
+    </ul>
+  </article>
+
+  <article class="entry">
+    <h3>Marketing Officer, Faculty of Pharmacy and Pharmaceutical Sciences, Monash University</h3>
+    <p class="meta">Sep 2021 – Mar 2023 · Melbourne</p>
+  </article>
+
+  <article class="entry">
+    <h3>Research Assistant, Faculty of Physics and Astronomy, Monash University</h3>
+    <p class="meta">Jan 2021 – Jan 2023 · Melbourne</p>
+    <ul>
+      <li>Constructed a three-body partial swap collision model and analysed its spectrum and multi-time quantum correlations, identifying anomalously slow (power-law) decay.</li>
+    </ul>
+  </article>
+
+  <article class="entry">
+    <h3>Software Engineer, Automation (internship), National Australia Bank</h3>
+    <p class="meta">Jan 2020 – Jun 2020 · Melbourne</p>
+    <ul>
+      <li>Built an interface to analyse and display real-time performance metrics from AWS time-series data, flagging potential service disruptions before they affected banking operations.</li>
+      <li>Contributed to automation workflows in Pega, translating business requirements into technical specifications.</li>
+    </ul>
+  </article>
+
+  <h2>Education</h2>
+
+  <article class="entry edu">
+    <div class="deg"><div><strong>Master of Science (MSc)</strong><span>Physics · 2026</span></div><em class="uni">Freie Universität Berlin</em></div>
+    <div class="deg"><div><strong>Bachelor of Science (Honours)</strong><span>Theoretical and Mathematical Physics · First Class Honours · 2022</span></div><em class="uni">Monash University</em></div>
+    <div class="deg"><div><strong>Bachelor of Science</strong><span>Majors: Mathematics and Physics · 2022</span></div><em class="uni">Monash University</em></div>
+    <div class="deg"><div><strong>Bachelor of Computer Science</strong><span>Specialisation: Data Science · 2022</span></div><em class="uni">Monash University</em></div>
+  </article>
+</main>
+
+<aside class="right">
+
+  <div class="block namebox">
+    <svg class="star" viewBox="0 0 100 100" aria-hidden="true" fill="#0a0ab5">
+    <rect x="43" y="2" width="14" height="96" rx="1"/>
+    <rect x="43" y="2" width="14" height="96" rx="1" transform="rotate(60 50 50)"/>
+    <rect x="43" y="2" width="14" height="96" rx="1" transform="rotate(120 50 50)"/>
+  </svg>
+    <h1 class="name"><span class="c">I</span><span class="s">sabelle</span><br><span class="c">M</span><span class="s">c</span><span class="c">E</span><span class="s">ntee</span></h1>
+    <p class="role">MSc Physics, Freie Universität Berlin<br>BSc (Honours) Physics · BSc Mathematics · B Comp Sci, Monash University<br>Quantum simulation · stochastic modelling · algorithmic trading</p>
+    <span class="avail">Available from February 2027</span>
+  </div>
+
+  <div class="block profile">
+    <h2>Profile</h2>
+    <p>I build numerical models of systems with memory and noise, from quantum environments in my research to simulated markets in my trading projects. I want to work on modelling and simulating complex stochastic systems, in quantitative finance or quantum technology. Australian citizen, based in Berlin, open to relocating to London, Amsterdam or New York.</p>
+    <div class="contact">
+      <h2>contact</h2>
+      <div>
+        <a href="https://www.linkedin.com/in/isabellemcentee/">LinkedIn</a>
+        <a href="https://github.com/IsabelleMc">GitHub</a>
+        <a href="cv.pdf">CV (PDF)</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="skills-head"><h2>Skills</h2></div>
+    <div class="skills">
+      <div>
+        <h4>Code</h4>
+        <ul><li>Python</li><li>SQL</li><li>R</li><li>Fortran</li><li>MATLAB</li><li>Mathematica</li><li>Java</li><li>Git</li><li>Linux</li><li>AWS</li></ul>
+      </div>
+      <div>
+        <h4>Data &amp; ML</h4>
+        <ul><li>NumPy</li><li>SciPy</li><li>pandas</li><li>statsmodels</li><li>scikit-learn</li><li>PyTorch</li><li>TensorFlow</li></ul>
+      </div>
+      <div>
+        <h4>Quantum</h4>
+        <ul><li>Tensor networks (MPS, TEBD)</li><li>Open quantum systems</li><li>Qiskit</li><li>QuTiP</li><li>TeNPy</li></ul>
+      </div>
+      <div>
+        <h4>Finance</h4>
+        <ul><li>Stochastic processes &amp; SDEs</li><li>Time series</li><li>Market making</li><li>Options pricing</li><li>Backtesting</li></ul>
+      </div>
+    </div>
+  </div>
+
+</aside>
+</div>
+</div>
+</body>
+</html>
